@@ -1,7 +1,7 @@
-
-import React from 'react';
 import Pokelist from './components/pokelist/Pokelist';
 import './App.scss';
+
+import { Link, Route } from "wouter";
 
 function App() {
   return (
@@ -10,7 +10,12 @@ function App() {
         <header className="App-header">
           <input type="text" placeholder="Filtrar pokemons por nombre" />
         </header>
-        <Pokelist />
+        <Route
+          component={Pokelist}
+          path="/" />
+        <Route
+          component={Pokelist}
+          path="/:page" />
       </div>
     </div>
   );
