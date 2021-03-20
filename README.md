@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Creacion de proyecto
+Este proyecto esta creado con create-react-app 
+(https://github.com/facebook/create-react-app).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+He instalado Sass a través de npm i sass
 
 ## Available Scripts
 

@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from 'react';
+import Pokelist from './components/pokelist/Pokelist';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <header className="App-header">
+          <input type="text" placeholder="Filtrar pokemons por nombre" />
+        </header>
+        <Pokelist />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,15 @@
+@import './scss/reset';
+@import './scss/variables';
+@import './scss/grid';
+
+body {
+  margin: 0;
+  font-family: $fontFamily; 
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   background-color: $primary-color;
+}
+.container{
+  max-width: $maxWidth;
+  margin: 0 auto;
+}
