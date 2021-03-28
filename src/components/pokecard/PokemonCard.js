@@ -2,37 +2,42 @@
 import React, { useState, useEffect } from 'react';
 import { getOnePokemon } from '../../services/pokemonServices';
 import './Pokecard.scss';
+import { Link } from 'wouter';
 
 
-
-function PokemonCard({ name, url }) {
+function PokemonCard({ name, id }) {
     const [pokemon, setPokemon] = useState([])
 
     useEffect(() => {
-        getOnePokemon({ url }).then(pokemon => setPokemon(pokemon));
-    }, [url])
-
+        getOnePokemon(id).then(pokemon => {
+            setPokemon(pokemon)
+        });
+    }, [id])
 
     return (
-        <a href={`#${pokemon.id}`}>
-            <article>
+
+        <article className="pokecard">
+            <Link className="link" to={`/pokemon/${pokemon.id}`}>
                 <div className="images">
-                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} alt={pokemon.name} title={pokemon.name} />
+                    <img src={pokemon.sprite ? pokemon.sprite : ''} alt={pokemon.name} />
                     <div className="pokemonid">ID / {pokemon.id}</div>
                 </div>
                 <div className="content">
                     <h2>{name}</h2>
                     <ul>
-                        <li>POISON</li>
-                        <li>GRASS</li>
+                        {pokemon.type && pokemon.type.map((item, index) => { return <li key={index}>{item}</li>; })}
                     </ul>
-                    <div>
-                        <p>Evoluciona de:</p>
-                        <h3>Bulbasaur</h3>
-                    </div>
+                    {pokemon.evolution !== null &&
+                        <div>
+                            <p>Evoluciona de:</p>
+                            <h3>{pokemon.evolution ? pokemon.evolution : ''}</h3>
+                        </div>
+                    }
+
                 </div>
-            </article>
-        </a>
+            </Link>
+        </article>
+
     );
 }
 
