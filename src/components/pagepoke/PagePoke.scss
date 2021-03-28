@@ -1,0 +1,71 @@
+section.view{
+    margin: 20px auto !important;
+    width: 80%;
+    a{
+        text-align: left;
+        display: block;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    article{
+        background-color: white;
+        border: 2px solid transparent;
+        box-shadow: 0px 0px 10px #908115;
+    h2{
+        font-weight: 600;
+        text: {
+            align: left;
+            transform: capitalize;
+        }
+        margin-bottom: 10px;
+    }
+    .imagesview{
+        background-color: #dfdfdf;
+        position: relative; 
+        min-height: 200px;
+        img{
+            width: 150px;
+        }
+        .pokemonid{
+            text-align: center;
+            background-color: #d1cdca;
+            padding: 10px;
+            width: 100%;
+            font-size: 80%;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    .content{
+        background-color: white;
+        padding: 16px;
+        text-align: left;
+        ul {
+            margin-bottom: 10px;
+            li{
+                display: inline-block;
+                margin:  5px 10px 5px 0px;
+                padding: 3px;
+                border: 1px solid #d1cdca; 
+                border-radius: 5px;
+                font-size: 80%;
+            }
+        }
+        div{
+            border-left: 3px solid #60381e;
+            padding-left: 10px;
+            h3{
+                font-size: 120%;
+                font-weight: 600;
+            }
+        }
+        .abilities{
+            margin-top: 10px;
+        }
+    }
+    }
+     .goback{
+        color: black;
+        text-decoration: none;
+    }
+}
