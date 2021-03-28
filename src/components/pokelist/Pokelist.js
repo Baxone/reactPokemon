@@ -2,31 +2,34 @@
 import React, { useState, useEffect } from 'react';
 import PokemonCard from '../pokecard/PokemonCard';
 import './Pokelist.scss';
-import { getPokemons } from '../../services/pokemonServices';
+import { getPokemons, getPokemonsByName } from '../../services/pokemonServices';
 
-function Pokelist(props) {
-    const page = props.params.page;
-    const [loading, setLoading] = useState([false])
+function Pokelist({ params }) {
+    const { name } = params;
     const [pokelist, setPokemons] = useState([])
 
     useEffect(() => {
-        setLoading(true);
-        getPokemons(page).then(pokemons => {
-            setPokemons(pokemons);
-            setLoading(false);
-        });
-    }, [page])
+        if (name) {
+            getPokemonsByName(name).then(pokemons => {
+                setPokemons(pokemons);
+            });
+        } else {
+            getPokemons().then(pokemons => {
+                setPokemons(pokemons);
+            });
+        }
 
-    if (loading) return <div className="loading"><img src="http://cdn.lowgif.com/full/c052dced5bb8e43a-.gif" alt="" /></div>
+    }, [name])
+
 
     return (
         <section className="grid">
             {
-                pokelist.map(({ name, url }) => (
-                    <div className="col-12 col-t-6 col-d-4" key={url}>
+                pokelist.map(({ name, id }) => (
+                    <div className="col-12 col-t-6 col-d-4" key={id}>
                         <PokemonCard
                             name={name}
-                            url={url}
+                            id={id}
                         />
                     </div>
                 ))
